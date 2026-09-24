@@ -1,0 +1,40 @@
+﻿@model GerenciadorProjetos.Models.Projeto
+
+@{
+    ViewData["Title"] = "Excluir Projeto";
+}
+
+<h1>Excluir Projeto</h1>
+
+<h3>Tem certeza que deseja excluir este projeto?</h3>
+
+<div>
+    <hr />
+
+    <dl>
+        <dt>Nome</dt>
+        <dd>@Model.Nome</dd>
+
+        <dt>Descrição</dt>
+        <dd>@Model.Descricao</dd>
+
+        <dt>Responsável</dt>
+        <dd>@Model.Responsavel</dd>
+
+        <dt>Data de Início</dt>
+        <dd>@Model.DataInicio.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Status</dt>
+        <dd>@Model.Status</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit">Excluir</button>
+
+        <a asp-action="Index">Cancelar</a>
+
+    </form>
+</div>

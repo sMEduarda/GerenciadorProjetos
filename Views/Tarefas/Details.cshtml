@@ -1,0 +1,37 @@
+﻿@model GerenciadorProjetos.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Detalhes da Tarefa";
+}
+
+<h1>Detalhes da Tarefa</h1>
+
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+
+    <dl>
+        <dt>Título</dt>
+        <dd>@Model.Titulo</dd>
+
+        <dt>Descrição</dt>
+        <dd>@Model.Descricao</dd>
+
+        <dt>Prioridade</dt>
+        <dd>@Model.Prioridade</dd>
+
+        <dt>Data Limite</dt>
+        <dd>@Model.DataLimite.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Concluída</dt>
+        <dd>@(Model.Concluida ? "Sim" : "Não")</dd>
+
+        <dt>Projeto</dt>
+        <dd>@Model.Projeto?.Nome</dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar para lista</a>
+</p>

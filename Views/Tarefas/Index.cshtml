@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GerenciadorProjetos.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+<h1>Tarefas</h1>
+
+<p>
+    <a asp-action="Create">Nova Tarefa</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Prioridade</th>
+            <th>Data Limite</th>
+            <th>Concluída</th>
+            <th>Projeto</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Descricao</td>
+                <td>@item.Prioridade</td>
+                <td>@item.DataLimite.ToString("dd/MM/yyyy")</td>
+                <td>@(item.Concluida ? "Sim" : "Não")</td>
+                <td>@item.Projeto?.Nome</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

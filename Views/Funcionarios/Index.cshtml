@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GerenciadorProjetos.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Funcionários";
+}
+
+<h1>Funcionários</h1>
+
+<p>
+    <a asp-action="Create">Novo Funcionário</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Cargo</th>
+            <th>Departamento</th>
+            <th>Data de Admissão</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Email</td>
+                <td>@item.Cargo</td>
+                <td>@item.Departamento</td>
+                <td>@item.DataAdmissao.ToString("dd/MM/yyyy")</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model GerenciadorProjetos.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Excluir Funcionário";
+}
+
+<h1>Excluir Funcionário</h1>
+
+<h3>Tem certeza que deseja excluir este funcionário?</h3>
+
+<div>
+    <hr />
+
+    <dl>
+        <dt>Nome</dt>
+        <dd>@Model.Nome</dd>
+
+        <dt>Email</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Cargo</dt>
+        <dd>@Model.Cargo</dd>
+
+        <dt>Departamento</dt>
+        <dd>@Model.Departamento</dd>
+
+        <dt>Data de Admissão</dt>
+        <dd>@Model.DataAdmissao.ToString("dd/MM/yyyy")</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit">Excluir</button>
+
+        <a asp-action="Index">Cancelar</a>
+
+    </form>
+</div>

@@ -1,0 +1,62 @@
+﻿@model GerenciadorProjetos.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Editar Tarefa";
+}
+
+<h1>Editar Tarefa</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Titulo"></label>
+        <input asp-for="Titulo" />
+        <span asp-validation-for="Titulo"></span>
+    </div>
+
+    <div>
+        <label asp-for="Descricao"></label>
+        <textarea asp-for="Descricao"></textarea>
+        <span asp-validation-for="Descricao"></span>
+    </div>
+
+    <div>
+        <label asp-for="Prioridade"></label>
+        <select asp-for="Prioridade">
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+        </select>
+        <span asp-validation-for="Prioridade"></span>
+    </div>
+
+    <div>
+        <label asp-for="DataLimite"></label>
+        <input asp-for="DataLimite" type="date" />
+        <span asp-validation-for="DataLimite"></span>
+    </div>
+
+    <div>
+        <label asp-for="Concluida"></label>
+        <input asp-for="Concluida" type="checkbox" />
+    </div>
+
+    <div>
+        <label asp-for="ProjetoId">Projeto</label>
+
+        <select asp-for="ProjetoId" asp-items="ViewBag.Projetos">
+            <option value="">Selecione um projeto</option>
+        </select>
+
+        <span asp-validation-for="ProjetoId"></span>
+    </div>
+
+    <button type="submit">Salvar Alterações</button>
+
+</form>
+
+<br />
+
+<a asp-action="Index">Voltar para lista</a>

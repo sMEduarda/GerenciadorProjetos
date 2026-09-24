@@ -1,0 +1,43 @@
+﻿@model GerenciadorProjetos.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Excluir Tarefa";
+}
+
+<h1>Excluir Tarefa</h1>
+
+<h3>Tem certeza que deseja excluir esta tarefa?</h3>
+
+<div>
+    <hr />
+
+    <dl>
+        <dt>Título</dt>
+        <dd>@Model.Titulo</dd>
+
+        <dt>Descrição</dt>
+        <dd>@Model.Descricao</dd>
+
+        <dt>Prioridade</dt>
+        <dd>@Model.Prioridade</dd>
+
+        <dt>Data Limite</dt>
+        <dd>@Model.DataLimite.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Concluída</dt>
+        <dd>@(Model.Concluida ? "Sim" : "Não")</dd>
+
+        <dt>Projeto</dt>
+        <dd>@Model.Projeto?.Nome</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit">Excluir</button>
+
+        <a asp-action="Index">Cancelar</a>
+
+    </form>
+</div>
